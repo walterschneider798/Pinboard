@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <title>Register Pinboard</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="https://resources.ctsapprentice.ch/css/main/bootstrap.css"/>
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+      <link rel="icon" href="https://resources.ctsapprentice.ch/images/icon/cts.ico"/>
+    </head>
+  <body>
+    <div class="container mt-4">
+        <div class="row mx-5">
+            <div class="col-12 text-center">
+                <img class="img-fluid" width="200px" src="/pinboard/resources/img/logo.png" alt="Logo">
+            </div>
+        </div> 
+            <div class="row my-3">
+                <div class="col text-center">
+                    <h2>login for Cognizant Pinboard</h2>
+                </div>
+            </div>
+    
+            <div class=" row border border-primary">
+                <div class="col-lg-12 col-md-12 col-sm-12 py-3 ">
+                    <label>email*</label>
+                    <input class="form-control" type="email" id="email" placeholder="hans.muster@cognizant.com">
+                </div>
+         
+                <div class="col-lg-12 col-md-12 col-sm-12 py-3">
+                    <label>password*</label>
+                    <input class="form-control " type="password" id="password" placeholder="password">
+                </div>
+                <div class="text-left text-danger col-lg-12 col-md-12 col-sm-6">
+                    <p>*mandatory fields</p>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 py-3 text-center" id="messagelogin">
+    
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 py-3 text-right">
+                    <button class="btn btn-outline-success" 
+                            onclick="login(
+                                document.getElementById('email').value.trim(),
+                                document.getElementById('password').value.trim(), 
+                                false
+                               
+                            )">login</button>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 my-4 ml-4 text-right">
+                    <a class="mx-3" href="register.html">no account yet?</a> 
+                    <a class="border-right border-primary"></a>
+                    <a class="mx-3" href="/pinboard/dashboard/main/include/pages/forgotpassword.php">reset password</a>
+
+                </div>
+            </div>
+            
+    
+            
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script src="/pinboard/resources/js/user.js"></script>
+        <script>
+        AOS.init();
+        
+        if (localStorage.getItem("user")) {
+            let user = JSON.parse(localStorage.getItem("user"));
+            login(user.email, user.password, true);
+        }  
+        </script>
+    </body>
+</html>
+                
